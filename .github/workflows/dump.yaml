@@ -2,11 +2,12 @@ name: Dump context
 
 on:
   push:
-  pull_request:
 
 jobs:
   dump:
     name: Dump context
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{ toJSON(github) }}'
+      - run: |
+        echo '${{ toJSON(github) }}'
+        echo ${GITHUB_REF##*/}
