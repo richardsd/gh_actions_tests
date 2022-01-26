@@ -2,6 +2,7 @@ name: Dump context
 
 on:
   push:
+
   pull_request:
 
 jobs:
@@ -9,4 +10,5 @@ jobs:
     name: Dump context
     runs-on: ubuntu-latest
     steps:
+      - run: echo "BRANCH_NAME=${GITHUB_HEAD_REF##*/}"
       - run: echo '${{ toJSON(github) }}'
